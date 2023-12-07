@@ -10,7 +10,7 @@
 #include <SPI.h>
 #include <Adafruit_SSD1351.h>
 #include "image.h"
-
+#include "SL_ICM20948.h"
 // CONSTANTS
 #define OLED_RESET  7
 #define OLED_CS     15
@@ -18,8 +18,8 @@
 #define OLED_CLK    17
 #define OLED_DC     18
 
-#define IMU_SDA     6
-#define IMU_SCL     5
+#define I2C_SDA     6
+#define I2C_SCL     5
 
 //I2C Addresses
 uint8_t icm20948 = 0b1101001;
@@ -34,6 +34,7 @@ uint8_t max1704x = 0b0110010; //OK. so the datasheet has the wrong value, it's c
 #define YELLOW          0xFFE0  
 #define WHITE           0xFFFF
 
+ICM20948 IMU;
 struct IMU_Data {
     float acc_x;
     float acc_y;
@@ -53,29 +54,24 @@ struct IMU_Data {
 Adafruit_SSD1351 display = Adafruit_SSD1351(128, 128,OLED_CS,OLED_DC,OLED_DIN,OLED_CLK,OLED_RESET);
 uint8_t temp;
 
-void Wire_get_data(uint8_t, uint8_t, uint8_t, uint8_t &);
-void Wire_get_byte(uint8_t, uint8_t, uint8_t &);
-void Wire_send_byte(uint8_t, uint8_t, uint8_t);
-
 int pos = 0;
 void setup() {
     Serial0.begin(115200);
-    Wire.begin(IMU_SDA,IMU_SCL);
+    Wire.begin(I2C_SDA,I2C_SCL);
+
     display.begin(0U);
     display.fillScreen(BLACK);
     display.setRotation(2);
-
     display.drawRGBBitmap(0,0,*saucelogo_rgb,128,128);
-    
-    Wire_get_byte(icm20948,0, temp);
+
     Serial0.println(temp);
-    if(temp == 234){
+    if(IMU.Get_Whoami() == 234){
         display.fillScreen(BLACK);
-        display.println("ICM42605 is present!");
-        Serial0.println("ICM42605 is present!");
+        display.println("ICM20948 is present!");
+        Serial0.println("ICM20948 is present!");
     }
 
-    Wire_get_byte(max1704x,9, temp);
+    //Wire_get_byte(max1704x,9, temp);
     Serial0.println(temp);
     if(temp == 3){
         display.println("MAX17044 is present!");
@@ -90,16 +86,16 @@ void setup() {
     delay(300);
     display.setTextColor(WHITE);
     display.setCursor(0,0);
-    Wire_send_byte(max1704x,(uint8_t)254,(uint8_t)84);
-    Wire_send_byte(max1704x,6,64);
-    Wire_get_byte(max1704x,4, temp);
+    //Wire_send_byte(max1704x,(uint8_t)254,(uint8_t)84);
+    //Wire_send_byte(max1704x,6,64);
+    //Wire_get_byte(max1704x,4, temp);
     display.printf("%02d  % Battery",temp);
 }
 
 void loop() {
     display.setTextColor(WHITE);
     display.setCursor(0,0);
-    Wire_get_byte(max1704x,4, temp);
+    //Wire_get_byte(max1704x,4, temp);
     display.printf("%03d%",temp);
     delay(2000);
     display.setTextColor(BLACK);
@@ -108,31 +104,4 @@ void loop() {
     delay(5);
 
 
-}
-
-void Wire_get_byte(uint8_t addr, uint8_t command, uint8_t &buf){
-    Wire.beginTransmission(addr);
-    Wire.write(command);
-    Wire.endTransmission();
-    if(Wire.requestFrom(addr,(uint8_t) 1) == 1){
-        buf = Wire.read();
-    } else buf = -1;
-}
-
-void Wire_get_data(uint8_t addr, uint8_t command, uint8_t response_size, uint8_t &buf){
-    Wire.beginTransmission(addr);
-    Wire.write(command);
-    Wire.endTransmission();
-    
-    if(Wire.requestFrom(addr, response_size) == response_size){
-        Wire.readBytes(&buf,response_size);
-    } else buf = -1;
-}
-
-
-void Wire_send_byte(uint8_t addr, uint8_t command, uint8_t data){
-    Wire.beginTransmission(addr);
-    Wire.write(command);
-    Wire.write(data);
-    Wire.endTransmission();
 }

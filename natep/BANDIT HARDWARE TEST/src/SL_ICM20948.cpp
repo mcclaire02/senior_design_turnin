@@ -6,39 +6,80 @@
 #include "SL_ICM20948.h"
 
 uint8_t address = 0b01101001; //AD0 is HIGH
-#define ALT_ADDRESS = 0h68;     //AD0 is LOW
 
-void ICM20948::Wire_get_data(uint8_t addr, uint8_t cmd, uint8_t size, uint8_t &buf)
+void ICM20948::wireGetData(uint8_t addr, uint8_t cmd, uint8_t size, uint8_t &buf)
 {
-    Wire.beginTransmission(addr);
-    Wire.write(cmd);
-    Wire.endTransmission();
+    beginTransmission(addr);
+    write(cmd);
+    endTransmission();
     
-    if(Wire.requestFrom(addr, size) == size){
-        Wire.readBytes(&buf,size);
+    if(requestFrom(addr, size) == size){
+        readBytes(&buf,size);
     } else buf = -1;
 }
 
-uint8_t ICM20948::Wire_get_byte(uint8_t addr, uint8_t cmd)
+uint8_t ICM20948::wireGetByte(uint8_t addr, uint8_t cmd)
 {
-    Wire.beginTransmission(addr);
-    Wire.write(cmd);
-    Wire.endTransmission();
-    if(Wire.requestFrom(addr,(uint8_t) 1) == 1){
-        return Wire.read();
+    beginTransmission(addr);
+    write(cmd);
+    endTransmission();
+    if(requestFrom(addr,(uint8_t) 1) == 1){
+        return read();
     } else return -1;
 }
 
-void ICM20948::Wire_send_byte(uint8_t addr, uint8_t cmd, uint8_t data)
+void ICM20948::wireSendByte(uint8_t addr, uint8_t cmd, uint8_t data)
 {
-    Wire.beginTransmission(addr);
-    Wire.write(cmd);
-    Wire.write(data);
-    Wire.endTransmission();
+    beginTransmission(addr);
+    write(cmd);
+    write(data);
+    endTransmission();
 }
 
-uint8_t ICM20948::Get_Whoami()
+bool ICM20948::isPresent()
 {
-    return Wire_get_byte(address, 0);
+    return wireGetByte(address, 0) == 234;
 }
 
+void ICM20948::setMode(MODE m)
+{
+    switch(m){
+        case _9AXIS:
+
+        case _6AXIS:
+
+            break;
+        case GYRO_ONLY:
+
+            break;
+        case ACCEL_ONLY:
+            
+            break;
+        case MAG_ONLY:
+
+            break;
+        case DMP_OFF:
+
+            break;
+        case DMP_ON:
+
+            break;
+        default:
+            break;
+    }
+}
+
+void ICM20948::getAccelData(IMU_Data &)
+{
+
+}
+
+void ICM20948::getGyroData(IMU_Data &)
+{
+
+}
+
+void ICM20948::getMagData(IMU_Data &)
+{
+    
+}

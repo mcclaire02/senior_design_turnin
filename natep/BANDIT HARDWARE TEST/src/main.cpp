@@ -35,21 +35,6 @@ uint8_t max1704x = 0b0110010; //OK. so the datasheet has the wrong value, it's c
 #define WHITE           0xFFFF
 
 ICM20948 IMU;
-struct IMU_Data {
-    float acc_x;
-    float acc_y;
-    float acc_z;
-
-    float gy_x;
-    float gy_y;
-    float gy_z;
-
-    float mag_x;
-    float mag_y;
-    float mag_z;
-
-    float temperature;
-} imudata;
 
 Adafruit_SSD1351 display = Adafruit_SSD1351(128, 128,OLED_CS,OLED_DC,OLED_DIN,OLED_CLK,OLED_RESET);
 uint8_t temp;
@@ -65,7 +50,7 @@ void setup() {
     display.drawRGBBitmap(0,0,*saucelogo_rgb,128,128);
 
     Serial0.println(temp);
-    if(IMU.Get_Whoami() == 234){
+    if(IMU.isPresent() == 234){
         display.fillScreen(BLACK);
         display.println("ICM20948 is present!");
         Serial0.println("ICM20948 is present!");
@@ -86,8 +71,8 @@ void setup() {
     delay(300);
     display.setTextColor(WHITE);
     display.setCursor(0,0);
-    //Wire_send_byte(max1704x,(uint8_t)254,(uint8_t)84);
-    //Wire_send_byte(max1704x,6,64);
+    //wireSendByte(max1704x,(uint8_t)254,(uint8_t)84);
+    //wireSendByte(max1704x,6,64);
     //Wire_get_byte(max1704x,4, temp);
     display.printf("%02d  % Battery",temp);
 }

@@ -1,0 +1,105 @@
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');
+INSERT INTO example_esp_data.Accelerometer (id,sensor_name,x,y,z,`time`) VALUES
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1'),
+	 (NULL,'Accelerometer',1.0,1.0,1.0,'1');

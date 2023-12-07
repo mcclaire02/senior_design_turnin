@@ -1,0 +1,105 @@
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');
+INSERT INTO example_esp_data.Oxygen (id,value,sensor_name,`time`) VALUES
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1'),
+	 (NULL,2.0,'Oxygen','1');

@@ -1,0 +1,105 @@
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');
+INSERT INTO example_esp_data.Heart (id,value,sensor_name,`time`) VALUES
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1'),
+	 (NULL,1.0,'Heart','1');

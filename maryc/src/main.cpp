@@ -6,8 +6,8 @@
 
 
 // Network Credentials
-const char* network_name     = "VFLAtt";
-const char* wifi_password = "VFLGforever12!";
+const char* network_name     = "network";
+const char* wifi_password = "password";
 //My server name on my Ubuntu VM
 const char* host = "http://192.168.1.196/post-esp-data.php"; //Host is my server hosted on Linux VM.
 String api_key = "12345"; // API key value, will be changed later.

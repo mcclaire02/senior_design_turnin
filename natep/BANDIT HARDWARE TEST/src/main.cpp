@@ -11,6 +11,7 @@
 #include <Adafruit_SSD1351.h>
 #include "image.h"
 #include "SL_ICM20948.h"
+
 // CONSTANTS
 #define OLED_RESET  7
 #define OLED_CS     15
@@ -20,7 +21,7 @@
 
 #define I2C_SDA     6
 #define I2C_SCL     5
-
+IMUData imu_data;
 //I2C Addresses
 uint8_t icm20948 = 0b1101001;
 uint8_t max1704x = 0b0110010; //OK. so the datasheet has the wrong value, it's correct here.(0x32)
@@ -50,9 +51,11 @@ void setup() {
     display.fillScreen(BLACK);
     delay(300);
 
-    if(IMU.isPresent()) display.println("IMU Present");
-    
-    //display.print(IMU.isPresent() ? "IMU Present":"IMU Not Present");
+    if(IMU.isPresent()) {
+        display.println("ICM20948 Present");
+        Serial0.println("ICM20948 Present");
+    }
+    IMU.getConfig();
     //Wire_get_byte(max1704x,9, temp);
     //Serial0.println(temp);
     if(temp == 3){
@@ -65,13 +68,8 @@ void setup() {
     //     Serial0.printf("0x%02x: %d\n", i, temp);
     // }
     display.fillScreen(BLACK);
-    delay(300);
     display.setTextColor(WHITE);
     display.setCursor(0,0);
-    //wireSendByte(max1704x,(uint8_t)254,(uint8_t)84);
-    //wireSendByte(max1704x,6,64);
-    //Wire_get_byte(max1704x,4, temp);
-    //display.printf("%02d % Battery",temp);
 }
 
 void loop() {
@@ -84,6 +82,8 @@ void loop() {
     // display.setCursor(0,0);
     // display.printf("%03d%",temp);
     // delay(5);
-
+    IMU.getAccelData(imu_data);
+    Serial0.printf("Accel:\tX: %04f\tY:%04f\tZ:%04f\n\n", imu_data.acc_x, imu_data.acc_y, imu_data.acc_z);
+    delay(200);
 
 }

@@ -15,6 +15,13 @@ MainWindow::MainWindow(QWidget *parent)
     QRegularExpressionValidator* v = new QRegularExpressionValidator(*regex);
     ui->lineEdit->setValidator(v);
 
+    // Timer to update the Query
+    QTimer* timer = new QTimer;
+    timer->setInterval(1000);
+    connect(timer, &QTimer::timeout, this, &MainWindow::updateTables);
+    timer->start();
+
+    // List of tabs on the right of the screen
     Tablist* tablist = new Tablist();
     ui->verticalLayout->addWidget(tablist);
 
@@ -55,9 +62,6 @@ void MainWindow::searchResults()
 {
     QString input = ui->lineEdit->text();
     ui->lineEdit->clear();
-    // Looking at the search Result, create a query on the tables
-    // Table names that match the search are added to the
-    // cardList and query is done handled on the Card
 
     // Empty cardList
     for(int i = 0; i < cardList.size(); i++)
@@ -68,19 +72,10 @@ void MainWindow::searchResults()
     }
     cardList.clear();
 
-
     Card* card = new Card(input, db);
     cardList.push_back(card);
 
     ui->formLayout->addWidget(card);
-
-
-    // somekind of loop that creates new Card based on sql
-
-    // need to set this up in card
-
-    // group exit connect when lineEdit is changed again
-
 }
 
 void MainWindow::removeWidget()
@@ -89,26 +84,40 @@ void MainWindow::removeWidget()
     delete table;
 }
 
+// Testing code that creates database
 void MainWindow::testDatabase()
 {
     QSqlQuery qprep;
 
-    if (qprep.exec("DROP TABLE IF EXISTS test"))
+    if (qprep.exec("DROP TABLE IF EXISTS temperature"))
     {
-        qDebug() << "Dropped existing test table.";
+        qDebug() << "Dropped existing temperature table.";
     }
-    qprep.exec("CREATE TABLE IF NOT EXISTS test (Sensor TEXT, Value1 INTEGER, Value2 INTEGER )");
-    qprep.exec("INSERT INTO test VALUES('Accelerometer', 600, 800);");
+    qprep.exec("CREATE TABLE IF NOT EXISTS temperature (time INTEGER, temp INTEGER)");
+    QTimer* timer = new QTimer();
+    timer->setInterval(500);
+    connect(timer, &QTimer::timeout, this, &MainWindow::updateTestDatabase);
+    timer->start();
+    QString s = "INSERT INTO temperature VALUES(0, 72);";
+    qprep.exec(s);
 
-    if (qprep.exec("DROP TABLE IF EXISTS test2"))
-    {
-        qDebug() << "Dropped existing test2 table.";
-    }
-    qprep.exec("CREATE TABLE IF NOT EXISTS test2 (Sensor TEXT, Value1 INTEGER, Value2 INTEGER )");
-    qprep.exec("INSERT INTO test2 VALUES('Accelerometer', 600, 800);");
 }
 
+// Testing code that inserts value to database
+void MainWindow::updateTestDatabase()
+{
+    time += 500;
+    QSqlQuery qprep;
+    QString s = "INSERT INTO temperature VALUES(" + QString::number(time) + ", 72);";
+    qprep.exec(s);
+}
+
+// Updates the Query on Cards
 void MainWindow::updateTables()
 {
     // update tables
+    for(int i = 0; i < cardList.size(); i++)
+    {
+        cardList[i]->updateWidget();
+    }
 }

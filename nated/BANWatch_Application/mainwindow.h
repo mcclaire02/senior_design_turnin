@@ -12,6 +12,7 @@
 #include <QVector>
 #include <QIntValidator>
 #include <QRegularExpressionValidator>
+#include <QTimer>
 
 class Card;
 
@@ -38,8 +39,10 @@ private:
     QTimer* updateTimer;        // Tells how frequently the sql query should be updated
 
     void testDatabase();        // Creates a database for testing purposes
+    unsigned int time = 0;
 
 private slots:
+    void updateTestDatabase();
     void searchResults();
     void removeWidget();
     void updateTables();

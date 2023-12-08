@@ -16,26 +16,12 @@ Card::Card(QString name, QSqlDatabase database)
     label->setText("Table: " + tableName);
     db = database;
 
-
-
-    QString s = "SELECT * FROM " + tableName;
-    model->setQuery(s, db);
-
-    table->setModel(model);
-    model->setHeaderData(0, Qt::Horizontal, "Sensor");
-    model->setHeaderData(1, Qt::Horizontal, "Value1");
-    model->setHeaderData(2, Qt::Horizontal, "Value2");
-
+    // Button that changes the format of the Card
     changeType = new QPushButton("Change Format");
     connect(changeType, &QPushButton::clicked, this, &Card::changeFormat);
 
-    vlayout->addWidget(label);
-    vlayout->addWidget(table);
-    vlayout->addWidget(changeType);
-
     layout->addLayout(vlayout);
-
-
+    updateWidget();
 }
 
 Card::~Card()
@@ -55,16 +41,31 @@ void Card::changeFormat()
 
 void Card::updateWidget()
 {
+    // Update the Query
+    QString s = "SELECT * FROM " + tableName;
+    model->setQuery(s, db);
+
     switch(widgetType)
     {
-        // Display the Table
-        case 0:
-
-        break;
-        // Display the most recent value
-        case 1:
-
+    // Display the Table
+    case 0:
+    {
+        table->setModel(model);
+        model->setHeaderData(0, Qt::Horizontal, "Sensor");
+        model->setHeaderData(1, Qt::Horizontal, "Value1");
+        model->setHeaderData(2, Qt::Horizontal, "Value2");
+        vlayout->addWidget(label);
+        vlayout->addWidget(table);
+        vlayout->addWidget(changeType);
         break;
     }
+    // Display the most recent value
+    case 1:
+    {
+        // Loop to find what the most recent value is
+        break;
+    }
+    }
+
 }
 

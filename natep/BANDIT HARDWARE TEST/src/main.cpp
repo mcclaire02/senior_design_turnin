@@ -43,33 +43,40 @@ void setup() {
     Serial0.begin(115200);
     Wire.begin(I2C_SDA,I2C_SCL);
 
-    display.begin(0U);
-    display.fillScreen(BLACK);
-    display.setRotation(2);
-    display.drawRGBBitmap(0,0,*saucelogo_rgb,128,128);
-    delay(300);
-    display.fillScreen(BLACK);
-    delay(300);
+    //IMU.reset();
+    IMU.init();
 
-    if(IMU.isPresent()) {
-        display.println("ICM20948 Present");
-        Serial0.println("ICM20948 Present");
-    }
-    IMU.getConfig();
+    display.begin(0U);
+    display.setRotation(2);
+    display.fillScreen(WHITE);
+    delay(2000);
+    display.fillScreen(BLACK);
+
+    display.drawRGBBitmap(0,0,*saucelogo_rgb,128,128);
+    delay(200);
+    display.fillScreen(BLACK);
+    delay(200);
+    // if(IMU.isPresent()) {
+    //     display.println("ICM20948 Present");
+    //     Serial0.println("ICM20948 Present");
+    // }
+    //IMU.getConfig();
     //Wire_get_byte(max1704x,9, temp);
     //Serial0.println(temp);
-    if(temp == 3){
-        display.println("MAX17044 is present!");
-        Serial0.println("MAX17044 is present!");
-    }
-    delay(300);
+    // if(temp == 3){
+    //     display.println("MAX17044 is present!");
+    //     Serial0.println("MAX17044 is present!");
+    // }
     // for(uint8_t i = 0; i < 255;i++){
     //     Wire_get_byte(max1704x,i, temp);
     //     Serial0.printf("0x%02x: %d\n", i, temp);
     // }
+
     display.fillScreen(BLACK);
     display.setTextColor(WHITE);
     display.setCursor(0,0);
+
+    delay(300);
 }
 
 void loop() {
@@ -83,7 +90,10 @@ void loop() {
     // display.printf("%03d%",temp);
     // delay(5);
     IMU.getAccelData(imu_data);
-    Serial0.printf("Accel:\tX: %04f\tY:%04f\tZ:%04f\n\n", imu_data.acc_x, imu_data.acc_y, imu_data.acc_z);
-    delay(200);
-
+    IMU.getGyroData(imu_data);
+    display.printf("A:X:%1.2fY:%1.2fZ:%1.2f", imu_data.acc_x, imu_data.acc_y, imu_data.acc_z);
+    display.printf("G:X:%1.2fY:%1.2fZ:%1.2f", imu_data.gy_x, imu_data.gy_y, imu_data.gy_z);
+    delay(100);
+    display.fillRect(0,0,128,25,BLACK);
+    display.setCursor(0,0);
 }

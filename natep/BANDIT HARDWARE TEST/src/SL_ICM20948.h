@@ -7,6 +7,18 @@
 #define SL_ICM20948_H
 #include <Wire.h>
 
+#define WHOAMI          0x00
+
+#define REG_BANK_SEL    0x7F
+#define USR_BANK_0      (uint8_t)(0x00 << 4)
+#define USR_BANK_1      (uint8_t)(0x01 << 4)
+#define USR_BANK_2      (uint8_t)(0x02 << 4)
+#define USR_BANK_3      (uint8_t)(0x03 << 4)
+
+#define USER_CTRL       0x03
+#define PWR_MGMT_1      0x06
+#define PWR_MGMT_2      0X07
+
 typedef struct IMU_Data {
     float acc_x;
     float acc_y;
@@ -16,11 +28,11 @@ typedef struct IMU_Data {
     float gy_y;
     float gy_z;
 
-    float mag_x;
-    float mag_y;
-    float mag_z;
+    int16_t mag_x;
+    int16_t mag_y;
+    int16_t mag_z;
 
-    float temperature;
+    int16_t temperature;
 } IMUData; //don't instantiate one, just used the buffer passed in.
 
 enum MODE {_6AXIS,_9AXIS,GYRO_ONLY, ACCEL_ONLY, MAG_ONLY, DMP_ON, DMP_OFF};
@@ -30,21 +42,24 @@ class ICM20948
 {
     public:
         ICM20948(uint8_t);
-        
 
-        bool isPresent();
+        bool init();
+        void reset();
         void setMode(MODE);
         void getAccelData(IMU_Data &);
         void getGyroData(IMU_Data &);
         void getMagData(IMU_Data &);
         void getTempData(IMU_Data &);
         void getAllData(IMU_Data &);
+        bool isPresent();
         void getConfig();
     private:
+        uint8_t currentBank;
+        void setBank(uint8_t);
         struct Sensor_Config{
-            uint8_t ACCEL_SENSITIVITY = 0;
-            uint8_t GYRO_SENSITIVITY = 0;
-
+            uint16_t ACCEL_SENSITIVITY;
+            float GYRO_SENSITIVITY;
+            MODE mode;
         } config;
         void getData(uint8_t, uint8_t, uint8_t &);
         uint8_t getByte(uint8_t);

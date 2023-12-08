@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->searchButton, &QPushButton::clicked, this, &MainWindow::searchResults);
 
     // Restrict input to prevent SQL injections
-    QRegularExpression* regex = new QRegularExpression("[A-Za-z0-9]{12}");
+    QRegularExpression* regex = new QRegularExpression("[A-Za-z0-9]{20}");
     QRegularExpressionValidator* v = new QRegularExpressionValidator(*regex);
     ui->lineEdit->setValidator(v);
 
@@ -41,16 +41,21 @@ MainWindow::MainWindow(QWidget *parent)
         qDebug() << "Error Opening Database: " << db.lastError();
         exit(1);
     }
-
+    // Setup Database for testing
     testDatabase();
-    // figure out how to query multiple tables
 
-    // somekind of display all method
-    // grabs all tables and creates Cards for them
-
-    // What needs to be done:
-    // Create the cards and put them on the MainWindow
-    // Query and display the values onto the Cards
+    QSqlQuery qprep;
+    qprep.exec("DROP TABLE IF EXISTS tables");
+    qprep.exec("CREATE TABLE IF NOT EXISTS tables (Sensor TEXT)");
+    qprep.exec("INSERT INTO tables VALUES('temperature');");
+    qprep.exec("INSERT INTO tables VALUES('accelerometer');");
+    qprep.exec("SELECT * FROM tables");
+    while(qprep.next())
+    {
+        tableList.push_back(qprep.value(0).toString());
+    }
+    qDebug() << tableList;
+    showAll();
 }
 
 MainWindow::~MainWindow()
@@ -78,12 +83,6 @@ void MainWindow::searchResults()
     ui->formLayout->addWidget(card);
 }
 
-void MainWindow::removeWidget()
-{
-    QTableView* table = qobject_cast<QTableView*>(sender());
-    delete table;
-}
-
 // Testing code that creates database
 void MainWindow::testDatabase()
 {
@@ -94,13 +93,19 @@ void MainWindow::testDatabase()
         qDebug() << "Dropped existing temperature table.";
     }
     qprep.exec("CREATE TABLE IF NOT EXISTS temperature (time INTEGER, temp INTEGER)");
+
+    if (qprep.exec("DROP TABLE IF EXISTS accelerometer"))
+    {
+        qDebug() << "Dropped existing accelerometer table.";
+    }
+    qprep.exec("CREATE TABLE IF NOT EXISTS accelerometer (time INTEGER, x INTEGER)");
+
     QTimer* timer = new QTimer();
     timer->setInterval(500);
     connect(timer, &QTimer::timeout, this, &MainWindow::updateTestDatabase);
     timer->start();
     QString s = "INSERT INTO temperature VALUES(0, 72);";
     qprep.exec(s);
-
 }
 
 // Testing code that inserts value to database
@@ -109,7 +114,9 @@ void MainWindow::updateTestDatabase()
     time += 500;
     QSqlQuery qprep;
     QString s = "INSERT INTO temperature VALUES(" + QString::number(time) + ", 72);";
+    QString x = "INSERT INTO accelerometer VALUES(" + QString::number(time) + ", 23);";
     qprep.exec(s);
+    qprep.exec(x);
 }
 
 // Updates the Query on Cards
@@ -120,4 +127,16 @@ void MainWindow::updateTables()
     {
         cardList[i]->updateWidget();
     }
+}
+
+void MainWindow::showAll()
+{
+    // Show all
+    for(int i = 0; i < tableList.size(); i++)
+    {
+        Card* card = new Card(tableList[i], db);
+        ui->formLayout->addWidget(card);
+        cardList.push_back(card);
+    }
+    updateTables();
 }

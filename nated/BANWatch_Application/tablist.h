@@ -2,6 +2,7 @@
 #define TABLIST_H
 
 #include <QWidget>
+#include <QDialog>
 #include <QLabel>
 #include <QBoxLayout>
 #include <QPushButton>
@@ -14,6 +15,8 @@ public:
 
 private:
     QVBoxLayout* layout;
+
+    void addSensor();
 
 signals:
 

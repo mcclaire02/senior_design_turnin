@@ -41,10 +41,11 @@ private:
     void testDatabase();        // Creates a database for testing purposes
     unsigned int time = 0;
 
+    void showAll();             // Shows all tables
+
 private slots:
     void updateTestDatabase();
     void searchResults();
-    void removeWidget();
     void updateTables();
 };
 #endif // MAINWINDOW_H

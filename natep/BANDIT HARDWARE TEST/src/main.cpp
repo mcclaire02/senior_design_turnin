@@ -34,8 +34,6 @@ uint8_t max1704x = 0b0110010; //OK. so the datasheet has the wrong value, it's c
 #define YELLOW          0xFFE0  
 #define WHITE           0xFFFF
 
-ICM20948 IMU;
-
 Adafruit_SSD1351 display = Adafruit_SSD1351(128, 128,OLED_CS,OLED_DC,OLED_DIN,OLED_CLK,OLED_RESET);
 uint8_t temp;
 
@@ -48,21 +46,20 @@ void setup() {
     display.fillScreen(BLACK);
     display.setRotation(2);
     display.drawRGBBitmap(0,0,*saucelogo_rgb,128,128);
+    delay(300);
+    display.fillScreen(BLACK);
+    delay(300);
 
-    Serial0.println(temp);
-    if(IMU.isPresent() == 234){
-        display.fillScreen(BLACK);
-        display.println("ICM20948 is present!");
-        Serial0.println("ICM20948 is present!");
-    }
-
+    if(IMU.isPresent()) display.println("IMU Present");
+    
+    //display.print(IMU.isPresent() ? "IMU Present":"IMU Not Present");
     //Wire_get_byte(max1704x,9, temp);
-    Serial0.println(temp);
+    //Serial0.println(temp);
     if(temp == 3){
         display.println("MAX17044 is present!");
         Serial0.println("MAX17044 is present!");
     }
-
+    delay(300);
     // for(uint8_t i = 0; i < 255;i++){
     //     Wire_get_byte(max1704x,i, temp);
     //     Serial0.printf("0x%02x: %d\n", i, temp);
@@ -74,19 +71,19 @@ void setup() {
     //wireSendByte(max1704x,(uint8_t)254,(uint8_t)84);
     //wireSendByte(max1704x,6,64);
     //Wire_get_byte(max1704x,4, temp);
-    display.printf("%02d  % Battery",temp);
+    //display.printf("%02d % Battery",temp);
 }
 
 void loop() {
-    display.setTextColor(WHITE);
-    display.setCursor(0,0);
-    //Wire_get_byte(max1704x,4, temp);
-    display.printf("%03d%",temp);
-    delay(2000);
-    display.setTextColor(BLACK);
-    display.setCursor(0,0);
-    display.printf("%03d%",temp);
-    delay(5);
+    // display.setTextColor(WHITE);
+    // display.setCursor(0,0);
+    // //Wire_get_byte(max1704x,4, temp);
+    // display.printf("%03d%",temp);
+    // delay(2000);
+    // display.setTextColor(BLACK);
+    // display.setCursor(0,0);
+    // display.printf("%03d%",temp);
+    // delay(5);
 
 
 }

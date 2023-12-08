@@ -6,48 +6,55 @@
 #include "SL_ICM20948.h"
 
 uint8_t address = 0b01101001; //AD0 is HIGH
+TwoWire& TW = Wire;
 
-void ICM20948::wireGetData(uint8_t addr, uint8_t cmd, uint8_t size, uint8_t &buf)
+ICM20948::ICM20948(uint8_t bus)
 {
-    beginTransmission(addr);
-    write(cmd);
-    endTransmission();
-    
-    if(requestFrom(addr, size) == size){
-        readBytes(&buf,size);
-    } else buf = -1;
+    if(bus == 1) TW = Wire1;
 }
 
 uint8_t ICM20948::wireGetByte(uint8_t addr, uint8_t cmd)
 {
-    beginTransmission(addr);
-    write(cmd);
-    endTransmission();
-    if(requestFrom(addr,(uint8_t) 1) == 1){
-        return read();
+    TW.beginTransmission(addr);
+    TW.write(cmd);
+    TW.endTransmission();
+    if(TW.requestFrom(addr,(uint8_t) 1) == 1){
+        return TW.read();
     } else return -1;
+}
+
+void ICM20948::wireGetData(uint8_t addr, uint8_t cmd, uint8_t size, uint8_t &buf)
+{
+    TW.beginTransmission(addr);
+    TW.write(cmd);
+    TW.endTransmission();
+    
+    if(TW.requestFrom(addr, size) == size){
+        TW.readBytes(&buf,size);
+    } else buf = -1;
 }
 
 void ICM20948::wireSendByte(uint8_t addr, uint8_t cmd, uint8_t data)
 {
-    beginTransmission(addr);
-    write(cmd);
-    write(data);
-    endTransmission();
+    TW.beginTransmission(addr);
+    TW.write(cmd);
+    TW.write(data);
+    TW.endTransmission();
 }
 
 bool ICM20948::isPresent()
 {
-    return wireGetByte(address, 0) == 234;
+    return wireGetByte(address, 0) == (uint8_t) 234;
 }
 
 void ICM20948::setMode(MODE m)
 {
     switch(m){
         case _9AXIS:
-
+            //TODO: Set up 9 Axis
+            break;
         case _6AXIS:
-
+            //TODO: Set up 6 axis 
             break;
         case GYRO_ONLY:
 
@@ -81,5 +88,13 @@ void ICM20948::getGyroData(IMU_Data &)
 
 void ICM20948::getMagData(IMU_Data &)
 {
-    
+
 }
+
+void ICM20948::getTempData(IMU_Data &)
+{
+
+}
+
+ICM20948 IMU = ICM20948(0);
+ICM20948 IMU1 = ICM20948(1);

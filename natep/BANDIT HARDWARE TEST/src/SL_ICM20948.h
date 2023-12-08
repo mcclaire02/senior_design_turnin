@@ -3,12 +3,14 @@
 // DEVELOPED BY SAUCE LABS     //
 // VERSION 0.1, 12/6/2023      //
 /////////////////////////////////
-#pragma once
+#ifndef SL_ICM20948_H
+#define SL_20948_H
 #include <Wire.h>
 
-class ICM20948 : TwoWire
+class ICM20948
 {
     public:
+        ICM20948(uint8_t);
         enum MODE {_6AXIS,_9AXIS,GYRO_ONLY, ACCEL_ONLY, MAG_ONLY, DMP_ON, DMP_OFF};
         struct IMU_Data {
             float acc_x;
@@ -31,9 +33,15 @@ class ICM20948 : TwoWire
         void getGyroData(IMU_Data &);
         void getMagData(IMU_Data &);
         void getTempData(IMU_Data &);
+        void getAllData(IMU_Data &);
     private:
         void wireGetData(uint8_t, uint8_t, uint8_t, uint8_t &);
         uint8_t wireGetByte(uint8_t, uint8_t);
         void wireSendByte(uint8_t, uint8_t, uint8_t);
 
 };
+
+extern ICM20948 IMU;
+extern ICM20948 IMU1;
+
+#endif

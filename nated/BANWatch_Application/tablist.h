@@ -6,6 +6,7 @@
 #include <QLabel>
 #include <QBoxLayout>
 #include <QPushButton>
+#include <QLineEdit>
 
 class Tablist : public QWidget
 {

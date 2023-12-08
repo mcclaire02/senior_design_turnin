@@ -13,6 +13,7 @@
 #include <QIntValidator>
 #include <QRegularExpressionValidator>
 #include <QTimer>
+#include <QLabel>
 
 class Card;
 
@@ -42,6 +43,8 @@ private:
     unsigned int time = 0;
 
     void showAll();             // Shows all tables
+
+    QLabel* resultsMsg;
 
 private slots:
     void updateTestDatabase();

@@ -1,3 +1,5 @@
+// tablist.cpp
+// Creates a list of buttons to leftside of mainwindow
 #include "tablist.h"
 
 Tablist::Tablist(QWidget *parent)
@@ -24,9 +26,22 @@ Tablist::Tablist(QWidget *parent)
 void Tablist::addSensor()
 {
     // Have line edit that lets you enter sensor
-    QDialog d;
-    QVBoxLayout layout(&d);
-    //QLabel label1("Help");
-    //layout.addWidget(&label1);
-    d.exec();
+    QDialog* d = new QDialog();
+    QVBoxLayout layout(d);
+    QHBoxLayout hlayout;
+
+    QPushButton* submitButton = new QPushButton("Submit");
+    connect(submitButton, &QPushButton::clicked, d, &QDialog::accept);
+
+    QLineEdit lineEdit;
+    hlayout.addWidget(&lineEdit);
+    // todo: Need to add filter
+    hlayout.addWidget(submitButton);
+    // todo: need to add connection from lineedit to push to tablelist
+
+    QLabel label1("Enter in sensor");
+
+    layout.addWidget(&label1);
+    layout.addLayout(&hlayout);
+    d->exec();
 }
